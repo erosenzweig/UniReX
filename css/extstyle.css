@@ -1,0 +1,55 @@
+html {
+	width: 450px;
+	min-height: 450px;
+	max-height: 450px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+body {
+	width: 910px;
+	min-height: 450px;
+	max-height: 450px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+#searchbox {
+	width: 100px;
+	float:right;
+}
+#listgroup {
+	width: 450px;
+}
+#bs-example-navbar-1 {
+	padding-left: 0px;
+	padding-right: 7px;
+}
+#details {
+	width: 447px;
+	height: 400px;
+	overflow-x: hidden;
+	word-wrap: break-word;
+	display: inline-block;
+	position: relative;
+}
+#commands {
+	width: 450px;
+	height: 400px;
+	display: inline-block;
+	overflow-x: hidden;
+	margin-top: 51px;
+	position: relative;
+}
+#container {
+	width: 910px;
+	padding: 0px;
+	position: absolute;
+}
+.navbar {
+	top: 0;
+	z-index: 9999;
+	width: 450px;
+	position: fixed;
+}
+.input-group {
+	margin-top: 7px;
+}

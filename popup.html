@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started Extension's</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jquery-ui.theme.min.css" rel="stylesheet">
+    <link href="css/jquery-ui.structure.min.css" rel="stylesheet">
+    <link href="css/extstyle.css" rel="stylesheet">
+
+    <script src="js/jquery1.11.3.min.js"></script>
+	  <script src="js/jquery-ui.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/popup.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><img src="images/logo.png" /></a>
+          <div id="bs-example-navbar-1">
+            <div class="input-group">
+              <input id="searchbox" type="text" class="form-control" placeholder="Search for..."></input>
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button" id="go">Go!</button>
+              </span>
+            </div><!-- /input-group -->
+          </div><!-- /.navbar-collapse -->
+        </div>
+      </div><!-- /.container-fluid -->
+    </nav>
+    <div id="container">
+      <div id="commands">
+        <div id="listgroup" class="list-group"></div>
+      </div>
+      <div id="details">
+          <h1 id="cmdname"></h1>
+
+          <h2><small>Description</small></h2>
+          <p id="description"></p>
+
+          <h2><small>Examples</small></h2>
+          <div id="examples-with-descriptions"></div>
+        </div>
+      </div>
+  </body>
+</html>

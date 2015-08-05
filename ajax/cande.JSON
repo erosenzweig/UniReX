@@ -1,0 +1,45 @@
+{
+	"commands": [
+		{
+			"name":						"ACCESS",
+			"description":		"The ACCESS command is used to interrogate or change the accesscode of a session. \nWhen ACCESS is entered, the current accesscode for the session is returned (not \nincluding the accesscode password). \nThe ACCESS form assigns a null accesscode to the session. If the \nACCESSCODENEEDED attribute is set in the USERDATAFILE for the usercode, the \nrequest is denied. \nThe ACCESS <accesscode>/<apassword> form assigns or change the session’s \naccesscode and corresponding accesscode password after validation in the \nUSERDATAFILE. The ACCESS command does not alter the USERDATAFILE. If the \n<apassword> is not supplied, it is requested. \nThe ACCESS <accesscode> form is used when no accesscode password exists for a \nparticular accesscode. \nOn systems with the Secure Access Control Module or Password Management \nsecurity packages, the accesscode password must be entered on a separate line (and \nusually in a protected field), if the security option SECUREPASSWORDS is set.",
+			"example_desc":		[ "" ],
+			"examples": 			[ "ACCESS \n#ACCESSCODE = CODE1. \nACCESS CODE/PASS \n#SESSION 4094 ET=8:10.1 PT=1:08.9 IO=3.4.1 \n#CONTINUE SESSION 4094 13:32:47 10/17/83 \n#ACCESSCODE = CODE."]
+		},
+
+		{
+			"name":						"ADD",
+			"description":		"The ADD command is similar to the COPY command. It copies files between disks,  \ntapes or CD-ROMs. Refer to the COPY command later in this section.  \nThe ADD command has the following effects based on whether a disk or tape \ndestination is specified: \n• For a disk destination, the ADD command only copies those files that are not \nalready resident on the specified disk destination. \n• For a tape destination, the ADD command has the same effect as a COPY \ncommand that specifies a tape destination. \nThe ADD command is particularly useful for adding a directory of files to a disk where \nsome of the files are already resident and are to be preserved. \nAn ADD command running under a nonprivileged usercode cannot copy a directory of \nfiles that resides under another usercode. \nThe ADD command is processed by the Work Flow Language (WFL), not CANDE. The \ncommand (and any text appearing on the same line) is passed unedited to WFL. For a \nmore detailed explanation, refer to the ADD statement in the WFL Programming \nReference Manual. ",
+			"example_desc":		[ "The following example copies files under the directory Z/= from tape T to disk R and \nto DISK. Any files already resident on the destination volumes are not copied. Note \nthat different files might be copied to R and DISK, depending on what is already \nresident on each destination volume before the ADD is done. " ],
+			"examples": 			[ "ADD Z/= FROM T(KIND=TAPE) TO R(KIND=DISK), TO DISK; " ]
+		},
+
+		{
+			"name":						"APASSWORD",
+			"description":		"The APASSWORD command allows the accesscode password to be changed for the \ncurrent accesscode of a session. \nTo change accesscode passwords, all or part of the required information can be \nentered with the APASSWORD command. Any information not initially provided is \nrequested by CANDE. For verification purposes, the <new apassword> (new \naccesscode password) must be entered twice. \nTo provide complete information, the following would be entered: \nAPASSWORD <old apassword> <new apassword> <new apassword> \nThis form changes the user’s accesscode password from the current accesscode \npassword (<old apassword>) to a new accesscode password (<new apassword>). \nOn systems with the Secure Access Control Module or Password Management \nsecurity packages, the accesscode passwords must be entered on separate lines (and \nusually in protected fields), if the security option SECUREPASSWORD is set. The old \nand new passwords must be entered on lines that are separate from the command \nand from each other. \nIf APASSWORD or any other subset of the complete command is entered, CANDE \nprompts the rest of the command. \nNote: If the CASESENSITIVEPW security option is set, passwords must be entered \nin a case-sensitive form. \nFor additional information about accesscode passwords, refer to “User Identification \nand Logging On” in Section 1, “General Information.” \nAny CANDE schedule sessions inherit the accesscode of the CANDE session. The \nAPASSWORD command is not valid within a CANDE schedule session. If a schedule \nsession contains an ACCESS command with an invalid accesscode, the schedule \nsession is aborted. \nCANDE includes the accesscode in all log records about a session, particularly in logon \nand log-off records. ",
+			"example_desc":   [ "" ],
+			"examples":				[ "APASSWORD ESR \n#ENTER NEW ACCESSCODE PASSWORD PLEASE. \nEPR \n#RE-ENTER NEW ACCESSCODE PASSWORD PLEASE. \nEPR \n# \n\nAPASSWORD OLDPW = NEWPW NEWPW \n# " ]
+		},
+
+		{
+			"name":						"ARCHIVE",
+			"description":		"The ARCHIVE command manipulates files in the Archive Subsystem. \nThe ARCHIVE command is processed by the Work Flow Language (WFL), not CANDE. \nThe command (and any text appearing on the same line) is passed unedited to WFL. \nFor a more detailed explanation, refer to the Archive Subsystem in the 'Statements' \nsection of the WFL Programming Reference Manual. ",
+			"example_desc":		[ "" ],
+			"examples":				[ "ARCHIVE <something> (this is an example)" ]
+		},
+
+		{
+			"name":						"BACKUPPROCESS",
+			"description":		"The BACKUPPROCESS command calls the Backup Processor utility. Through this \nutility, backup files can be copied to disk, listed on a terminal, printed, or removed. \nThe <directory name> specifies the directory that is to be searched for backup files. \nOnly backup files found in this directory are presented to the user. \nThe ON <family name> construct allows the specification of an arbitrary disk family \nthat is to be searched. \nIf :REMOVE is entered, all files in the directory are removed. \nIf :REMOVE is not entered, the Backup Processor utility enters interactive mode. \nThe :OPTION <option list> construct specifies Backup Processor utility options. Refer \nto the Backup Processor utility documentation in the Printing Utilities Operations \nGuide for the complete command syntax using the :OPTION or :REMOVE options. ",
+			"example_desc":		[ "This is an example description for the BACKUPPROCESS command." ],
+			"examples":				[ "BACK \n#RUNNING 1101 \n#? \nA15 Backup Processor (37.000.000). \nYou have one backup file in your directory. " ]
+		},
+
+		{
+			"name":						"BIND",
+			"description":		"The BIND command is similar to the COMPILE command except that if a compiler is \nnot specified, the BINDER is invoked. For further information, refer to the COMPILE \ncommand in this section. ",
+			"example_desc":		[ "" ],
+			"examples":				[ "BIND \n#BINDING 3291 \n#ET=1:13.9 PT=6.3 IO=60.9 \n\nBIND ALGOL/PROG WITH ALGOL \n#BINDING 3314 \n#ET=1:19.6 PT=8.9 IO=50.6" ]
+		}
+	]
+}
